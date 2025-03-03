@@ -224,6 +224,12 @@ extension SwipeCollectionViewCell: SwipeControllerDelegate {
         return delegate?.collectionView(collectionView, editActionsOptionsForItemAt: indexPath, for: orientation) ?? SwipeOptions()
     }
     
+    func swipeController(_ controller: SwipeController, swipleInsetsAt indexPath: IndexPath) -> UIEdgeInsets? {
+        guard let collectionView = collectionView, let indexPath = collectionView.indexPath(for: self) else { return .zero }
+        
+        return delegate?.collectionView(collectionView, swipleInsetsAt: indexPath)
+    }
+    
     func swipeController(_ controller: SwipeController, visibleRectFor scrollView: UIScrollView) -> CGRect? {
         guard let collectionView = collectionView else { return nil }
         

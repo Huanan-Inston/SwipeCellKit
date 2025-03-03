@@ -71,12 +71,18 @@ public protocol SwipeCollectionViewCellDelegate: class {
      - note: The returned rectange should be in the collection view's own coordinate system. Returning `nil` will result in no vertical offset to be be calculated.
      */
     func visibleRect(for collectionView: UICollectionView) -> CGRect?
+    
+    func collectionView(_ collectionView: UICollectionView, swipleInsetsAt indexPath: IndexPath) -> UIEdgeInsets?
 }
 
 /**
  Default implementation of `SwipeCollectionViewCellDelegate` methods
  */
 public extension SwipeCollectionViewCellDelegate {
+    func collectionView(_ collectionView: UICollectionView, swipleInsetsAt indexPath: IndexPath) -> UIEdgeInsets? {
+        return nil
+    }
+    
     func collectionView(_ collectionView: UICollectionView, editActionsOptionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
         return SwipeOptions()
     }
