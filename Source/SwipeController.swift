@@ -366,7 +366,7 @@ extension SwipeController: UIGestureRecognizerDelegate {
         {
             let translation = gestureRecognizer.translation(in: view)
             
-            guard let swiple = view as? Swipeable, let indexPath = swiple.indexPath else {
+            guard let swiple = view as? Swipeable, !swiple.state.isActive, let indexPath = swiple.indexPath else {
                 return abs(translation.y) <= abs(translation.x)
             }
             
