@@ -373,7 +373,7 @@ extension SwipeController: UIGestureRecognizerDelegate {
             let inset = delegate?.swipeController(self, swipleInsetsAt: indexPath) ?? .zero
             let point = gestureRecognizer.location(in: view)
             
-            return abs(translation.y) <= abs(translation.x) && view.frame.inset(by: inset).contains(point)
+            return abs(translation.y) <= abs(translation.x) && view.bounds.inset(by: inset).contains(point)
         }
         
         return true
